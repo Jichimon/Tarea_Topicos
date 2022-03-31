@@ -1,0 +1,67 @@
+mat-card{
+    margin-top: 5%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 5%;
+  }
+
+  .card-title{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-family: "Roboto";
+  }
+  mat-form-field{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  new-form-btn{
+    position: relative;
+
+  }
+
+.card-btns-flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+ 
+.card-img-left {
+  width: 45%;
+  background-size: 140%;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: #3e8cd6;
+}
+.btn-text:hover{
+  color: #01084C;
+}
+
+.btn-dark-moon {
+  background: #01084C;  /* fallback for old browsers */
+  background: linear-gradient(90deg, #01084C 60%, #01096C 100%);
+  color: #fff;
+}
+
+.btn-dark-moon:hover{
+  background: linear-gradient(90deg, #1e4e85 10%, #3e8cd6 99%);
+}
+
+
+.label{
+  font-weight: lighter;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.show-mat-spinner{
+  align-self: center;
+}
