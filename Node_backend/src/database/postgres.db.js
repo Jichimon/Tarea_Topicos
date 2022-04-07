@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
 var sequelize = new Sequelize(
-    'tarea1_topicos', //nombre de la base
+    'appweb_topicos', //nombre de la base
     'postgres', //user
-    'aaaaaa', //password
+    'pajitas98', //password
     {
       host: 'localhost',
       dialect: 'postgres',
@@ -13,8 +13,11 @@ var sequelize = new Sequelize(
         require: 30000,
         idle: 10000
       },
+      define: {
+        freezeTableName: true
+      },
       logging: false
-    }  
+    },
 );
 
 

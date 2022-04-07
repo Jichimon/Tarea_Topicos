@@ -1,5 +1,7 @@
-const { response } = require('express');
+const response = require ( "../../contracts/dtos/auth/login.response.dto.js");
 const findUserService = require('../user/find.user.service');
+const findRequest = require("../../contracts/dtos/user/find.user.request.dto");
+const Validator = require ("../validators/validator.service");
 
 
 exports.login = async function (req) {
@@ -8,8 +10,12 @@ exports.login = async function (req) {
 
     if (!email || !password) {
         const error = new Error('Los valores no pueden estar vacíos');
-        error.statusCode = 401;
-        throw error;
+        error.statusCode = 401;      
+        return new response(false, error, null);       
+    }
+
+    if(!Validator.isEmail(email)){
+        return new response(false, 'Formato de Correo Incorrecto', null);
     }
 
     var findUser = new findRequest('email', email);

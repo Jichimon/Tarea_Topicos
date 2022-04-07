@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 
 import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { AuthService } from '../services/auth.service';
     AuthRoutingModule,
     MaterialModule
   ],
-  providers: [AuthService]
+  providers: [UserService, AuthService]
 })
 export class AuthModule { }

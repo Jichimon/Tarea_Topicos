@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+  
+      <div  class="col-lg-6 col-xl-6 mx-auto">
+        <div class="card my-5 shadow overflow-hidden">
+          <div class="card-body p-sm-2">
+            <h1 class="card-title text-center fs-3">Detalles del Perfil</h1>
+  
+            <mat-form-field appearance="outline">
+              <mat-label class="label">Nombre</mat-label>
+              <input matInput placeholder="Nombre" [(ngModel)]="user.name" autocomplete="off" readonly>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label class="label">Telefono</mat-label>
+              <input matInput placeholder="Telefono" [(ngModel)]="user.phone" type="tel" readonly>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label class="label">Correo</mat-label>
+                <input matInput placeholder="Correo" [(ngModel)]="user.email" autocomplete="off" type="email" readonly>
+              </mat-form-field>
+  
+            <button mat-raised-button  type="button"  (click) = "onExit()">Cerrar Sesion</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>

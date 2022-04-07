@@ -1,27 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
-  baseUrl: string = 'http://localhost:3000/api/';
+  private baseUrl: string = 'http://localhost:3000/api/';
 
   constructor(
-    private http: HttpClient,
-     private router:Router
-  ) { }
+      private http: HttpClient,
+      
+      private userService: UserService
+  ) 
+  {   }
 
   login(users : any){
-    return this.http.post(this.baseUrl+'auth/login', users)
+    return this.http.post(this.baseUrl+'auth/login', users);
+  }
+
+
+  logout(){
+    console.log("Log Out");
   }
 
 
   signin(user: any){
-    return this.http.post(this.baseUrl+'users/create', user)
+    return this.userService.create(user);
   }
 
 }
+ 

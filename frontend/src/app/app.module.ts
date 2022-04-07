@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { AuthService } from './services/auth.service';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [AuthService],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,33 +3,50 @@
   
       <div  class="col-lg-6 col-xl-6 mx-auto">
         <div class="card my-5 shadow overflow-hidden">
-          <div class="card-body p-sm-2">
-            <h5 class="card-title text-center fs-3">Registrarse</h5>
+          <form class="card-body p-sm-2" [formGroup]="requestForm">
+            <h1 class="card-title text-center fs-3">Registrarse</h1>
   
             <mat-form-field appearance="outline">
               <mat-label class="label">Nombre</mat-label>
-              <input matInput placeholder="Nombre" [(ngModel)]="request.name" autocomplete="off" type="email">
+              <input matInput 
+                    placeholder="Nombre" 
+                    formControlName="name"
+                    autocomplete="off" 
+                    type="email"
+                    required>
             </mat-form-field>
   
             <mat-form-field appearance="outline">
               <mat-label class="label">Telefono</mat-label>
-              <input matInput placeholder="Telefono" [(ngModel)]="request.phone" type="tel">
+              <input matInput 
+              placeholder="Telefono" 
+              formControlName="phone" 
+              type="tel">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label class="label">Correo</mat-label>
-                <input matInput placeholder="Correo" [(ngModel)]="request.email" autocomplete="off" type="email">
+                <input matInput 
+                      placeholder="Correo" 
+                      formControlName="email" 
+                      autocomplete="off" 
+                      type="email"
+                      required>
               </mat-form-field>
     
               <mat-form-field appearance="outline">
                 <mat-label class="label">Contraseña</mat-label>
-                <input matInput placeholder="Contraseña" [(ngModel)]="request.password" type="password">
+                <input matInput 
+                      placeholder="Contraseña" 
+                      formControlName="password" 
+                      type="password"
+                      required>
               </mat-form-field>
   
   
             <button mat-raised-button class="btn btn-dark-moon" type="submit"  (click) = "onRegister()">Guardar</button>
             <button mat-raised-button  type="button"  (click) = "onReturn()">Volver</button>
-          </div>
+            </form>
         </div>
       </div>
     </div> 

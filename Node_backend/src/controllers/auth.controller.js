@@ -12,6 +12,6 @@ exports.login = async function (req, res, next) {
     if (response.success) {
         res.status(200).json(response);
     } else {
-        res.status().json(response);
+        res.status(400).json(response);
     }
 };
