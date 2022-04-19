@@ -7,53 +7,31 @@ import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageRefService } from 'src/app/services/local-storage-ref.service';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  selector: 'app-two-steps-code',
+  templateUrl: './two-steps-code.component.html',
+  styleUrls: ['./two-steps-code.component.scss']
 })
-export class SigninComponent implements OnInit {
+export class TwoStepsCodeComponent implements OnInit {
+
 
   requestForm = new FormGroup({
-    name: new FormControl(
+    code: new FormControl(
       '',
       [
         Validators.required,
-      ]
-    ),
-    phone: new FormControl(
-      '',
-      [
-        Validators.minLength(7),
-        Validators.maxLength(10),
-      ]
-    ),
-    email: new FormControl(
-      '',
-      [
-        Validators.required,
-        Validators.email
-      ]
-    ),
-    password: new FormControl(
-      '',
-      [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(20),
       ]
     )
   });
 
-  private localStorage: Storage;
+  localStorage: Storage;
 
   constructor(
     public authService: AuthService,
-    private localStorageRef: LocalStorageRefService,
     private _snackBar: MatSnackBar,
+    private localStorageRef: LocalStorageRefService,
     private router: Router
-  ) 
-  { 
-    this.localStorage = localStorageRef.localStorage;
+  ) { 
+    this.localStorage = this.localStorageRef.localStorage;
   }
 
   ngOnInit(): void {
@@ -66,15 +44,15 @@ export class SigninComponent implements OnInit {
       return;
     }
 
+    let idS = this.localStorage.getItem('userToConfirm') ?? 0;
+    var id: number = +idS;
     let request = {
-      email: this.requestForm.get('email')?.value,
-      name: this.requestForm.get('name')?.value,
-      phone: this.requestForm.get('phone')?.value,
-      password: this.requestForm.get('password')?.value
+      code: this.requestForm.get('code')?.value,
+      userId: id,
     }
 
 
-    this.authService.signin(request)
+    this.authService.checkTwoStepsCode(request)
     .pipe(
       catchError( err => {
         console.log(err);
@@ -86,16 +64,16 @@ export class SigninComponent implements OnInit {
       let result = data;
       if (result.success) {
         console.log(result.message);
-        this.localStorage.setItem('userToConfirm', result.user.id);
-        this.router.navigate(['/auth/confirm-register']);
       }
+
+      this.OpenSnack(result.message);
     });
   }
+
 
   onReturn(){
     this.router.navigate(['/auth/login']);
   }
-
 
   OpenSnack(message:string){
     this._snackBar.open(message, 'CERRAR', {

@@ -1,3 +1,4 @@
+import { registerLocaleData } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LocalStorageRefService } from './local-storage-ref.service';
@@ -27,6 +28,11 @@ export class UserService {
 
   create(user: any){
     return this.http.post(this.baseUrl+'/create', user)
+  }
+
+
+  confirmRegister(userCode: any) {
+    return this.http.post(this.baseUrl + '/confirm-register', userCode);
   }
 
 }

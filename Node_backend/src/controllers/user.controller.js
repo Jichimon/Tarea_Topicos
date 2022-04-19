@@ -21,6 +21,18 @@ exports.create = async function (req, res, next) {
 };
 
 
+exports.activateRegisterWithCode = async function(req, res) {
+
+    var response = await createUserService.registerInTwoSteps(req.body);
+    
+    if (response.success) {
+        return res.status(200).json(response);
+    } else {
+        return res.status(400).json(response);
+    }
+};
+
+
 exports.findOne = async function (req, res) {
     const  id  = req.params.id;
     var userToFind;

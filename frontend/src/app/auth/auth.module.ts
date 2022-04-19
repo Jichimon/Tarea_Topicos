@@ -8,12 +8,14 @@ import { SigninComponent } from './signin/signin.component';
 
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
+import { TwoStepsCodeComponent } from './two-steps-code/two-steps-code.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    SigninComponent
+    SigninComponent,
+    TwoStepsCodeComponent
   ],
   imports: [
     CommonModule,

@@ -29,6 +29,10 @@ const User = db.define(
         password: {
             type: Sequelize.DataTypes.STRING,
             allowNull: false,
+        },
+        active: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
         }
     }
 );

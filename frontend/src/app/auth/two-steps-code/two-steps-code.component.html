@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+  
+      <div  class="col-lg-6 col-xl-6 mx-auto">
+        <div class="card my-5 shadow overflow-hidden">
+          <form class="card-body p-sm-2" [formGroup]="requestForm">
+            <h1 class="card-title text-center fs-3">Escriba el código que le llegó a su correo</h1>
+  
+            <mat-form-field appearance="outline">
+              <mat-label class="label">Código</mat-label>
+              <input matInput 
+                    placeholder="Codigo" 
+                    formControlName="code"
+                    autocomplete="off" 
+                    type="number"
+                    required>
+            </mat-form-field>
+  
+  
+            <button mat-raised-button class="btn btn-dark-moon" type="submit"  (click) = "onRegister()">Guardar</button>
+            <button mat-raised-button  type="button"  (click) = "onReturn()">Volver</button>
+            </form>
+        </div>
+      </div>
+    </div> 
+  </div>

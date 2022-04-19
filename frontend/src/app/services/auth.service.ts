@@ -29,5 +29,10 @@ export class AuthService {
     return this.userService.create(user);
   }
 
+
+  checkTwoStepsCode(userCode: any){
+    return this.userService.confirmRegister(userCode);
+  }
+
 }
  
